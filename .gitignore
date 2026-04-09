@@ -1,16 +1,14 @@
-# Godot 4+ specific ignores
+# Godot 4+
 .godot/
 .nomedia
 
-# Godot-specific ignores
+# Safe to ignore (regenerated)
 .import/
+
+# Exports & credentials
 export.cfg
 export_credentials.cfg
 
-# Imported translations (automatically generated from CSV files)
-*.translation
-
-# Mono-specific ignores
-.mono/
-data_*/
-mono_crash.*.json
+# OS junk
+.DS_Store
+Thumbs.db

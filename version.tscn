@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://dxfjjic0jeqlr"]
+
+[ext_resource type="Script" uid="uid://cjdg3mbcdrh61" path="res://addons/sem_ver/sem_version_ui.gd" id="1_uqv66"]
+
+[node name="Version" type="Control" unique_id=1006137092 node_paths=PackedStringArray("__curr_version_label", "__edit_version_label", "__android_version_code_label", "__android_increment_checkbox", "__major_btn", "__minor_btn", "__patch_btn", "__discard_btn", "__set_btn")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_uqv66")
+__curr_version_label = NodePath("VBoxContainer/LabelsHBox/curr_version_label")
+__edit_version_label = NodePath("VBoxContainer/LabelsHBox/edit_label")
+__android_version_code_label = NodePath("VBoxContainer/AndroidHBox/android_verison_code_edit_label")
+__android_increment_checkbox = NodePath("VBoxContainer/AndroidHBox/android_code_increment_check_box")
+__major_btn = NodePath("VBoxContainer/bump/Btns/major")
+__minor_btn = NodePath("VBoxContainer/bump/Btns/minor")
+__patch_btn = NodePath("VBoxContainer/bump/Btns/patch")
+__discard_btn = NodePath("VBoxContainer/edit/discard")
+__set_btn = NodePath("VBoxContainer/edit/save")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1830688395]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_right = 0.98
+anchor_bottom = 0.98
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LabelsHBox" type="HBoxContainer" parent="VBoxContainer" unique_id=695738068]
+layout_mode = 2
+size_flags_horizontal = 5
+alignment = 1
+
+[node name="curr_version_label" type="Label" parent="VBoxContainer/LabelsHBox" unique_id=687351224]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 48
+text = "0.0.1"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="edit_label" type="Label" parent="VBoxContainer/LabelsHBox" unique_id=414018714]
+visible = false
+self_modulate = Color(0.4392157, 1, 0.5058824, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 48
+text = "0.0.1"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="AndroidHBox" type="VBoxContainer" parent="VBoxContainer" unique_id=84756468]
+custom_minimum_size = Vector2(0, 68)
+layout_mode = 2
+
+[node name="android_code_increment_check_box" type="CheckBox" parent="VBoxContainer/AndroidHBox" unique_id=349282724]
+layout_mode = 2
+text = "Auto increment Android version code"
+
+[node name="android_verison_code_edit_label" type="Label" parent="VBoxContainer/AndroidHBox" unique_id=1966080611]
+visible = false
+self_modulate = Color(0.4392157, 1, 0.5058824, 1)
+layout_mode = 2
+text = "0.0.1"
+vertical_alignment = 1
+clip_text = true
+
+[node name="bump" type="HBoxContainer" parent="VBoxContainer" unique_id=1140227316]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/bump" unique_id=1849693644]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "bump:"
+vertical_alignment = 1
+uppercase = true
+
+[node name="Btns" type="HBoxContainer" parent="VBoxContainer/bump" unique_id=309432035]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="major" type="Button" parent="VBoxContainer/bump/Btns" unique_id=1002537460]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "major"
+
+[node name="minor" type="Button" parent="VBoxContainer/bump/Btns" unique_id=858474779]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "minor"
+
+[node name="patch" type="Button" parent="VBoxContainer/bump/Btns" unique_id=1964096976]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "patch"
+
+[node name="edit" type="HBoxContainer" parent="VBoxContainer" unique_id=839191266]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="empty" type="Control" parent="VBoxContainer/edit" unique_id=890657370]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+
+[node name="discard" type="Button" parent="VBoxContainer/edit" unique_id=248155818]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 12
+text = "discard"
+
+[node name="save" type="Button" parent="VBoxContainer/edit" unique_id=674692417]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 12
+text = "save"
