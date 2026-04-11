@@ -115,6 +115,5 @@ func __set_version():
 		push_error("Failed to save project settings: " + error_string(err))
 		return
 
-	# EditorInterface.get_resource_filesystem().scan()
-	# EditorInterface.restart_editor(true)
+	EditorInterface.restart_editor(true)
 	__reset()
