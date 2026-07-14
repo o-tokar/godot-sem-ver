@@ -12,7 +12,8 @@ var __screen_center: Vector2i:
 func _enter_tree() -> void:
 	__cmd_palette = EditorInterface.get_command_palette()
 
-	__packed_popup_scn = load("res://addons/godot-sem-ver/edit_version_popup.tscn")
+	var current_dir = get_script().resource_path.get_base_dir()
+	__packed_popup_scn = load(current_dir.path_join("/edit_version_popup.tscn"))
 
 	__cmd_palette.add_command(
 		"Semantic Version",
