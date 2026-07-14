@@ -1,5 +1,5 @@
 @tool
-class_name SemVersionUI extends Control
+class_name EditVersionUI extends Control
 
 @export var __curr_version_label: Label
 @export var __edit_version_label: Label
@@ -24,7 +24,7 @@ func _exit_tree() -> void:
 	__major_btn.pressed.disconnect(__update_version)
 	__minor_btn.pressed.disconnect(__update_version)
 	__patch_btn.pressed.disconnect(__update_version)
-	__discard_btn.pressed.disconnect(__reset)
+	__discard_btn.pressed.disconnect(discard)
 	__set_btn.pressed.disconnect(__set_version)
 	__android_increment_checkbox.toggled.disconnect(__show_android_version)
 	__curr_version_label.text = ""
@@ -38,19 +38,19 @@ func _enter_tree() -> void:
 
 	__android_increment_checkbox.toggled.connect(__show_android_version)
 
-	__discard_btn.pressed.connect(__reset)
+	__discard_btn.pressed.connect(discard)
 	__set_btn.pressed.connect(__set_version)
-	__reset()
+	discard()
 
 
 func __show_android_version(toggle: bool):
 	var _cfg = __get_export_cfg()
 	__android_version_code_label.visible = toggle
 	var version_code = _cfg.get_value("preset.0.options", 'version/code')
-	__android_version_code_label.text = "ANDROID version code: {code}".format({"code": version_code})
+	__android_version_code_label.text = "Next Android [version/code]: {code} → {next}".format({"code": version_code, "next":version_code + 1})
 
 
-func __reset():
+func discard() -> void:
 	__edit_version_label.visible = false
 	var ver = ProjectSettings.get_setting_with_override(__version_prop_path)
 
@@ -59,8 +59,7 @@ func __reset():
 	var int3 = __extract_version(ver)
 	__v_upd = Vector3i(int3[0], int3[1], int3[2])
 	__v = Vector3i(int3[0], int3[1], int3[2])
-	__show_android_version(__android_increment_checkbox.button_pressed)
-
+	__android_increment_checkbox.button_pressed = false
 
 func __get_export_cfg() -> ConfigFile:
 	var _cfg = ConfigFile.new()
@@ -116,4 +115,4 @@ func __set_version():
 		return
 
 	EditorInterface.restart_editor(true)
-	__reset()
+	discard()
