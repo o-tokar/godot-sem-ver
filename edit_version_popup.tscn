@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://djlgqt5f62ssq"]
+
+[ext_resource type="Script" uid="uid://b1pbfbjgvebmo" path="res://addons/sem_ver/edit_version_popup.gd" id="1_edt32"]
+[ext_resource type="PackedScene" uid="uid://dxfjjic0jeqlr" path="res://addons/sem_ver/version.tscn" id="2_0qoed"]
+
+[node name="command_palette" type="Window" unique_id=1218009673]
+oversampling_override = 1.0
+position = Vector2i(0, 36)
+script = ExtResource("1_edt32")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1586324190]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.16924527, 0.1692453, 0.16924527, 1)
+
+[node name="Version" parent="." unique_id=1006137092 instance=ExtResource("2_0qoed")]
