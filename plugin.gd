@@ -12,7 +12,7 @@ var __screen_center: Vector2i:
 func _enter_tree() -> void:
 	__cmd_palette = EditorInterface.get_command_palette()
 
-	__packed_popup_scn = load("res://addons/sem_ver/edit_version_popup.tscn")
+	__packed_popup_scn = load("res://addons/godot-sem-ver/edit_version_popup.tscn")
 
 	__cmd_palette.add_command(
 		"Semantic Version",
@@ -23,6 +23,7 @@ func _enter_tree() -> void:
 	__popup = __packed_popup_scn.instantiate() as Window
 	EditorInterface.get_base_control().add_child(__popup)
 	__popup.close_requested.connect(__popup.hide)
+	__popup.title = "Godot Semantic Version"
 
 
 func _show_popup() -> void:
