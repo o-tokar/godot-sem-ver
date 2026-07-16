@@ -75,8 +75,11 @@ func __update_version(version_type: Version):
 	match version_type:
 		Version.MAJOR:
 			__v_upd.x += 1
+			__v_upd.y = 0
+			__v_upd.z = 0
 		Version.MINOR:
 			__v_upd.y += 1
+			__v_upd.z = 0
 		Version.PATCH:
 			__v_upd.z += 1
 	__edit_version_label.text = "{major}.{minor}.{patch}".format({"major": __v_upd.x, "minor": __v_upd.y, "patch": __v_upd.z})
